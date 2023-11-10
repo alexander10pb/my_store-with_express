@@ -1,0 +1,63 @@
+Configuración del entorno de desarrollo
+⠀⠀⠀⠀
+Hola!, les dejo las definiciones de los siguientes conceptos para reafirmar las bases que ya tenemos sobre el desarrollo. 😁
+⠀⠀⠀⠀
+Git Ignore:
+⠀⠀⠀⠀
+Son archivos ignorados que suelen ser artefactos de compilación y archivos generados por el equipo que pueden derivarse de tu fuente de repositorios o que no deberían confirmarse por algún otro motivo. Ejemplo: node_modules.
+
+Linters:
+⠀⠀⠀⠀
+Herramientas que realizan la lectura del código fuente
+
+Detectan errores/warnings de código
+Variables sin usar o no definida, llave sin cerrar…
+⠀⠀⠀⠀
+Nodemon:
+⠀⠀⠀⠀
+Es una herramienta que ayuda a desarrollar aplicaciones en Node.js al reiniciar la aplicación autómaticamente cuando hay cambios en el archivo.
+⠀⠀⠀⠀
+gitignore.io:
+⠀⠀⠀⠀
+Contiene la configuración del entorno que específiques
+⠀⠀⠀⠀
+Editor Config:
+⠀⠀⠀⠀
+Todos los desarrolladores tendrán la misma configuración del proyecto.
+
+Que son los Middlewares:
+Un middleware es un bloque de código que se ejecuta entre la petición que hace el usuario (request) hasta que la petición llega al servidor.
+
+function(req, res, next) {
+	if(error){
+		res.status(500).json({error});
+	}else{
+		next();
+}
+
+function(error, req, res, next) {
+	if(algo){
+		res.send('end');
+	}else{
+		next();
+}
+
+Casos de uso:
+Funcionan como pipes
+Validar datos
+Capturar errores
+Validar permisos controlar accesos
+
+## ****Consideraciones para producción****
+
+Un breve resumen de las consideraciones para producción:
+
+- Cors: Que acceso y a quienes le damos acceso para hacer solicitudes
+- Https: Que la API esta sobre servidor de HTTPS
+- Procesos de Build: Se ve en procesos que cosas que tiene procesar información (typescript)
+- Remover logs: No es bueno tener logs, a veces esto tiene demoras, existen mejor formas para capturar logs.
+- Seguridad (helmet): Muy importante la seguridad y para esto se recomienda helmt que es una colección de Middleware que colocan capas de segridad a la aplicación
+- Testing: Correr prebas unitarias o de integración antes de salir de producción
+
+
+https://legendary-creator-67a.notion.site/Curso-de-Backend-con-NodeJS-API-REST-con-Express-js-1b9c3d560cf648e7ab395f05ba2aa1d4
