@@ -61,3 +61,11 @@ Un breve resumen de las consideraciones para producción:
 
 
 https://legendary-creator-67a.notion.site/Curso-de-Backend-con-NodeJS-API-REST-con-Express-js-1b9c3d560cf648e7ab395f05ba2aa1d4
+
+Comandos:
+ls -l : ver todos los archivos
+\d+ : Una vez logueado te va a mostrar la estructura de la base de datos
+\q : Salir de la base de datos
+exit : Nos salimos del contenedor
+docer ps : Nos muestra una tabla con los servicios
+docker inspect <id> : Nos da un detalle del contenedor
