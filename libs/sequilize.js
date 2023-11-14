@@ -16,7 +16,4 @@ const sequelize = new Sequelize(URI, {
 
 setupModels(sequelize);
 
-Leer los modelos y empieza a crear tablas
-sequelize.sync();
-
 module.exports = sequelize;
