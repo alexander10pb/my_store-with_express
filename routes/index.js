@@ -10,7 +10,7 @@ function routerApi(app) {
     app.use('/api/v1', router)
     router.use('/products', productsRouter);
     router.use('/users', usersRouter);
-    router.use('/caterogies', categoriesRouter);
+    router.use('/categories', categoriesRouter);
     router.use('/customers', customersRouter);
 }
 
