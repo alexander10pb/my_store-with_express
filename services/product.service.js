@@ -5,33 +5,23 @@ const { models } = require('../libs/sequilize');
 
 class ProductService {
 
-    constructor() {
-        this.products = []
-        this.generate();
-    }
-
-    generate() {
-        const limit = 100;
-        for (let index = 0; index < limit; index++) {
-            this.products.push({
-                id: faker.datatype.uuid(),
-                name: faker.commerce.productName(),
-                price: parseInt(faker.commerce.price(), 10),
-                image: faker.image.imageUrl(),
-                isBlock: faker.datatype.boolean()
-            })
-        }
-    }
+    constructor() {}
 
     async create(data) {
         const newProduct = await models.Product.create(data);
         return newProduct;
     }
 
-    async find() {
-        const products = await models.Product.findAll({
+    async find(query) {
+        const options = {
             include: ['category']
-        });
+        }
+        const { limit, offset } = query;
+        if (limit && offset) {
+            options.limit = limit;
+            options.offset = offset;
+        }
+        const products = await models.Product.findAll(options);
         return products;
     }
 

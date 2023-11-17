@@ -2,20 +2,22 @@ const express = require('express');
 
 const ProductService = require('./../services/product.service');
 const validatorHandler= require('./../middlewares/validator.handler');
-const { createProductSchema, getProductSchema, updateProductSchema } = require('./../schemas/product.shema')
+const { createProductSchema, getProductSchema, updateProductSchema, queryProductSchema } = require('./../schemas/product.shema')
 
 const router = express.Router();
 const service = new ProductService();
 
-// http://localhost:3000/products?size=5
-router.get('/', async (req, res) => {
-    const products = await service.find();
-    res.json(products);
-});
-
-router.get('/filter', (req, res) => {
-    res.send('Yo soy un filter');
-});
+router.get('/',
+    validatorHandler(queryProductSchema, 'query'),
+    async (req, res, next) => {
+        try {
+            const products = await service.find(req.query);
+            res.json(products);
+        } catch (error) {
+            next(error);
+        }
+    }
+);
 
 router.get('/:id',
     validatorHandler(getProductSchema, 'params'),
